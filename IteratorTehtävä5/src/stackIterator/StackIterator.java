@@ -6,23 +6,6 @@
 package stackIterator;
 
 
-
-/**
- * <p>
- * Title: </p>
- *
- * <p>
- * Description: </p>
- *
- * <p>
- * Copyright: </p>
- *
- * <p>
- * Company: Stadia</p>
- *
- * @author JPK
- * @version 1.0
- */
 interface Iterator {
 
     boolean hasNext();
