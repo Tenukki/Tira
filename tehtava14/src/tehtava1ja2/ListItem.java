@@ -1,4 +1,4 @@
-package stackproject;
+package tehtava1ja2;
 
 public class ListItem {
     private String mData;

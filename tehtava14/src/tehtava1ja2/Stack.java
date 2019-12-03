@@ -1,4 +1,4 @@
-package stackproject;
+package tehtava1ja2;
 
 public class Stack {
     private ListItem mTop;
@@ -30,7 +30,7 @@ public class Stack {
         this.mSize = mSize;
     }
 
-    // Muodostetaan uusi lista-alkio, asetetaan se pinon huipulle
+   
     public void push (String aData) {
         ListItem newmTop = new ListItem();
         newmTop.setmData(aData);
@@ -39,7 +39,7 @@ public class Stack {
         mSize ++;
     }
 
-    // Poistetaan lista-alkio pinon huipulta, jos pino tyhjä, palautetaan null
+  
     public ListItem pop() {
         if (mSize == 0) {
             return null;
@@ -50,9 +50,25 @@ public class Stack {
             return tempTop;
         }
     }
+    
+    public String getString(){
+        String sana = "";
+        ListItem a = mTop;
+        for (int i = 0; i < getmSize(); i++) {
+            sana += a.getmData() +" ";
+            a = a.getmNext();
+        }
+        return sana;
+    }
 
     @Override
     public String toString() {
-        return "";
+        String sana = "";
+        ListItem a = mTop;
+        for (int i = 0; i < getmSize(); i++) {
+            sana += a.getmData() +" ";
+            a = a.getmNext();
+        }
+        return sana;
     }
 }

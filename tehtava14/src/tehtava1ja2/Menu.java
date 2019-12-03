@@ -10,7 +10,9 @@
  * @author JPK
  * @version 1.0
  */
-package stackproject;
+package tehtava1ja2;
+
+import java.util.Scanner;
 
 public class Menu {
     //main alkaa-----------------------------------------------------------------------------
@@ -25,6 +27,7 @@ public class Menu {
         char select;
         Stack s = new Stack(); // pino-olio
         String data; // Pinon data-kenttä
+        
         do {
 
             System.out.println("\n\t\t\t1. Alkion lisääminen.");
@@ -32,6 +35,7 @@ public class Menu {
             System.out.println("\t\t\t3. Pinon sisältö.");
             System.out.println("\t\t\t4. Alkioiden lukumäärä.");
             System.out.println("\t\t\t5. lopetus ");
+            System.out.println("\t\t\t6. Laske ");
             System.out.print("\n\n"); // tehdään tyhjiä rivejä
             select = Lue.merkki();
             switch (select) {
@@ -48,16 +52,60 @@ public class Menu {
                         System.out.println("Poistettu alkio: "+item.getmData());
                     break;
                 case '3':
-                    s.toString();
+                    System.out.println(s);
                     break;
                 case '4':
                     System.out.println("Lukumäärä = "+s.getmSize());
                     break;
+                case '6':
+                    
+                    String ss = s.toString();
+                    System.out.println("Oma tulostus " +laske(ss));
+                    System.out.println("Testi1 2 3 * + 4 + =" + laske("1 2 3 * + 4 +"));
+                    System.out.println("Testi 5 2 4 * + 7 - =" + laske ("5 2 4 * + 7 - "));
+                    System.out.println("Testi 8 5 * 7 4 2 + * + = " + laske("8 5 * 7 4 2 + * +"));
+                    break;
                 case '5':
                     break;
+                    
+                
             }
         }
         while (select != '5');
     }
-//printMenu loppuu ----------------------------------------------------------------
+    
+    public static String laske(String exp) {
+	 	Stack s = new Stack ();
+		Scanner tokens = new Scanner(exp);
+		
+		while (tokens.hasNext()) {
+			if (tokens.hasNextInt()) {
+                            
+				s.push(tokens.next());
+			} else {
+				int num2 = Integer.valueOf(s.pop().getmData());
+				int num1 = Integer.valueOf(s.pop().getmData());
+				String op = tokens.next();
+				
+				if (op.equals("+")) {
+                                    int a = num1 + num2;
+                                    s.push(Integer.toString(a));
+                                        
+				} else if (op.equals("-")) {
+                                    int a = num1 - num2;
+                                    s.push(Integer.toString(a));
+                                        
+				} else if (op.equals("*")) {
+                                    int a = num1 * num2;
+                                    s.push(Integer.toString(a));
+				} else {
+                                    int a = num1 / num2;
+                                    s.push(Integer.toString(a));
+				}
+			}
+		}
+		return s.pop().getmData();
+    }
 }
+
+

@@ -1,7 +1,7 @@
 //---------------------------------------------------------------
 // Arto Wikla: Ohjelmoinnin perusteet Java-kielellä, OtaDATA 1998
 //---------------------------------------------------------------
-package stackproject;
+package tehtava1ja2;
 
 import java.io.*;
 public class Lue {
