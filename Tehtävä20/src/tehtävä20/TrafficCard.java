@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tehtävä18;
+package tehtävä20;
 
 import java.util.*;
 
@@ -11,7 +11,7 @@ import java.util.*;
  *
  * @author kamaj
  */
-public class TrafficCard implements Comparable{
+public class TrafficCard {
     int mTravellerNumber;
     String mOwnerName;
     float mBalance;
@@ -25,6 +25,14 @@ public class TrafficCard implements Comparable{
     public float getmBalance() {
         return mBalance;
     }
+
+    public String getmOwnerName() {
+        return mOwnerName;
+    }
+
+    public int getmTravellerNumber() {
+        return mTravellerNumber;
+    }
     
     @Override
     public String toString(){
@@ -32,15 +40,5 @@ public class TrafficCard implements Comparable{
     }
 
     //sortataan suuremmista pienempään
-    @Override
-    public int compareTo(Object o) {
-        TrafficCard tr = (TrafficCard) o;
-        if(mBalance == tr.getmBalance()){
-            return 0;
-        }else if(mBalance > tr.getmBalance()){
-            return -1;
-        }else{
-            return 1;
-        }
-    }
+    
 }
